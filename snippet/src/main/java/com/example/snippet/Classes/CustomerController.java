@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,16 @@ public class CustomerController {
             }
         }
         return custo;
+    }
+
+    @DeleteMapping(value="/del/{id}")
+    public String delete(@PathVariable Long id){
+        for(int i=0;i<customer.size();i++){
+            if(Objects.equals(customer.get(i).id, id)){
+                 customer.remove(i);
+                 return "Mission accomplished";
+            }
+        }
+        return "solii mudinchu";
     }
 }
