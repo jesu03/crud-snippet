@@ -3,6 +3,7 @@ package com.example.snippet.Classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,5 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
     List<Customer> customer = new ArrayList<>(); 
 
-    
+    @GetMapping(value="/")
+    public List<Customer> getAll(){
+        return customer;
+    }
 }
